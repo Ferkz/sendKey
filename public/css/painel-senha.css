@@ -1,0 +1,47 @@
+.barraSuperior{
+	height: 100px;
+	margin-top: 0px;
+}
+.senhaAtual{
+	text-align: center;
+	align-items: center;
+	background-color: #3497d4;
+	color: white;
+}
+.senhaAtualTexto{
+	font-size: 65pt;
+	font-weight: 300;
+}
+#senhaAtualNumero{
+	font-size: 100pt;
+	font-weight: 600;
+}
+#PrioridadeAtual{
+	font-size: 60pt;
+	font-weight: 800;
+}
+.ultimaSenha{
+	font-weight: 800;
+	text-align: center;
+	background-color: #e9c7bc;
+	height: 130px;
+	margin-top: 10px;
+}
+#ultimaSenhaTexto{
+	font-size: 20px;
+	color: #a50;
+}
+#ultimaSenhaNumero{
+	font-size: 40px;
+	color: black;
+}
+.logo{
+	max-width: 150px;
+
+}
+.samarTexto{
+	font-size: 27pt;
+	font-weight: 800;
+	color: #2273a5;
+}
+

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>painel admin</title>
+    <link href="/css/bootstrap.css" rel="stylesheet">
+    <link rel=icon type=imagex-icon href="/img/favicon.png">
+    <link href="/css/index.css" rel="stylesheet">
+  </head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="./index.ejs ">
+            <img id="logo" src="/img/logo.png" alt="Rede Hospitalar Samar">
+            </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="./index.ejs">Inicio</a>
+              </li>
+              <li class="nav-item">
+                
+                <a class="nav-link" href="#">Notificações</a> <i class="fas fa-bell"></i>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Opções
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <li><a class="dropdown-item" href="#">Chamados</a></li>
+                  <li><a class="dropdown-item" href="#">Gráficos</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="http://suporte.ameron.com.br/">suporte</a></li>
+                </ul>
+              </li>
+              
+            </ul>
+            <form class="d-flex">
+              <input class="form-control me-2" type="search" placeholder="Pesquisar" aria-label="Search">
+              <button class="btn btn-outline-success" type="submit">Pesquisar</button>
+            </form>  
+            <button type="button" class="btn btn-dark">Sair</button>
+          </div>
+        </div>
+      </nav>
+
+      <div class="container">
+        <div class="row">
+          <div class="col">
+            <div class="col-sm-3">
+            <button class="btn btn btn-warning" type="submit" id="btn-char"><a href="/dashboard/websenha">Painel Exibição senha</a></button> 
+             </div>  
+          </div>
+          <div class="col">
+            <div class="col-sm-3">
+            <button class="btn btn btn-secondary" type="submit" id="btn-char">Configuração</button> 
+            </div> 
+          </div>
+          <div class="col">
+            <div class="col-sm-3">
+              <a href="/dashboard/atendimentos/">
+            <button class="btn btn btn-success" type="submit" id="btn-char">Atendimentos</button> 
+              </a>
+            </div>
+          </div>
+          <div class="col">
+            <div class="col-sm-3">
+              <a href="/Cliente/src/pages/atendimentos-improdutivos/Atendimento-improdutivos.html">
+            <button class="btn btn btn-danger" type="button" id="btn-char">Atendimentos improdutivos</button>
+              </a>
+            </div>
+            </div>
+        </div>
+      </div>   
+<footer class="bg-dark"> Desenvolvido por  <a href="https://github.com/Ferkz" target="_blank">You burro men ?</a> &copy;copyright 2022</footer>
+<script></script>
+
+</body>
+<script src="/js/bootstrap.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js" integrity="sha384-ODmDIVzN+pFdexxHEHFBQH3/9/vQ9uori45z4JjnFsRydbmQbmL5t1tQ0culUzyK" crossorigin="anonymous"></script>
+</html>

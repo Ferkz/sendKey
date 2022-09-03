@@ -1,0 +1,40 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    height: 100vh;
+    width: 100%;
+    font-family: 'Roboto', sans-serif;
+    background:linear-gradient(45deg,rgb(17, 53, 231), rgb(39, 45, 51));
+
+}
+.container{
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top:50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    align-items: center;
+}
+.senha-btn{
+    width: 100%;
+    margin: 20px;
+    border-radius: 1rem;
+    font-size: 60px;
+    background-color:white;
+    border-style: none;
+    font-weight: bold;
+}
+
+.senha-btn:active{
+    background-color:#232526;
+    color:#ffff;
+    animation-duration: 2s;
+}

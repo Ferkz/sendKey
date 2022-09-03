@@ -1,0 +1,69 @@
+
+*{
+    margin: 0;
+    padding: 0;
+    border:border-box;
+}
+.container{
+    padding: 100px 0px;
+    align-items: center;
+
+}
+
+#logo{
+    width: 150px;
+}
+.teste{
+    display: flex;
+    align-items: center;
+}
+.gestante-chamadaBtn{
+    color: #ffff ;
+    cursor: pointer;
+    padding: 5px; 
+    background-color:rgb(231, 34, 34);
+    border-radius: 7px;
+}
+.normal-chamadaBtn{
+    color: #ffff ;
+    cursor: pointer;
+    padding: 5px; 
+    background-color:rgb(17, 53, 231);
+    border-radius: 7px ;
+}
+.idoso-chamadaBtn{
+    color: #ffff ;
+    cursor: pointer;
+    padding: 5px; 
+    background-color:rgb(189, 202, 8);
+    border-radius: 7px;
+}
+.especial-chamadaBtn{
+    color: #ffff ;
+    cursor: pointer;
+    padding: 5px; 
+    background-color:rgb(3, 110, 21);
+    border-radius: 7px;
+    
+}
+footer{
+    text-align: center;
+    bottom: 0;
+    position: fixed;
+    width: 100%;
+    color: #ffff;
+    height: 5%;
+}
+footer a{
+   text-decoration: none;
+   color: #ffff;
+}
+#btn-char{
+    width: 200px;
+    height: 100px;
+}
+.container button a{
+    text-decoration: none;
+    color: #ffff;
+}
+
