@@ -1,5 +1,5 @@
 const mongoose = require ('../dbConect');
-const bcrypt = require ('bcryptjs');
+const {hashSync, genSaltSync} = require ('bcryptjs');
 
 const usuarioSchema = new mongoose.Schema({
     nome:{
@@ -23,8 +23,8 @@ const usuarioSchema = new mongoose.Schema({
     },
 });
 
-usuarioSchema.pre('save', async function(next){
-     const hash = await bcrypt.hash(this.password, 10);
+usuarioSchema.pre('save', function(next){
+     const hash = hashSync(this.password, genSaltSync(10));
      this.password = hash;
      next();
 })
