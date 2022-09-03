@@ -38,5 +38,5 @@ app.use('/dashboard',require('../client/src/routers/routers'));
 require('../client/src/controllers/authenticacaoController')(app)
 require ('../client/src/routers/routers.login')(app)
 app.listen(port,()=>{
-    console.log("servidor rodando na porta",port);
+    console.log(`Servidor rodando na porta ${port}: http://localhost:${port}`);
 })
