@@ -14,7 +14,7 @@ app.use(session({
     resave: false,
     saveUninitialized: false,
     cookie : {
-        maxAge: 604800000
+        maxAge: 6048
     }
 }))
 app.use(flash());
@@ -30,11 +30,10 @@ app.use((req,res,next)=>{
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 app.set('views', path.join(__dirname,'views'));
-app.use(express.static(path.join(__dirname,'/../public')));
-
+app.use(express.static(path.join(__dirname,'./public')));
 app.set('view engine','ejs')
-app.use('/dashboard',require('./config/routers/routers'));
 
+require('./config/routers/routers')(app)
 require('./config/controllers/authenticacaoController')(app)
 require ('./config/routers/routers.login')(app)
 app.listen(port,()=>{

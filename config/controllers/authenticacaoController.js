@@ -9,7 +9,7 @@ router.post('/register',async (req,res)=>{
         const usuario = await Usuario.create(req.body);
         return res.send({usuario});
     }catch(err){
-        return res.status(400).send ({error: 'Falha na criacao do usuario'+err});
+        return res.status(400).send ({error: 'Falha na criacao do usuario '+err});
     }
 });
 router.post('/login',(req,res,next)=>{

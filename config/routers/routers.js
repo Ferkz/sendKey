@@ -13,4 +13,4 @@ router.get('/webpainel',(req,res)=>{
 router.get('/websenha',(req,res)=>{
     res.render('./exibir-senha/exibir-senha')
 })
-module.exports = router
+module.exports = app => app.use('/dashboard',router)
