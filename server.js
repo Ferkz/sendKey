@@ -4,7 +4,15 @@ const app = express();
 const path = require('path');
 const port = 3000;
 const passport = require('passport');
-const flash = require('connect-flash')
+const flash = require('connect-flash');
+
+const http = require('http');
+const serverHttp = http.createServer(app);
+const {Server} = require('socket.io');
+const io = new Server(serverHttp)
+module.exports = io
+
+
 
 const session = require('express-session');
 
