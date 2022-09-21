@@ -5,14 +5,10 @@ const path = require('path');
 const port = 3000;
 const passport = require('passport');
 const flash = require('connect-flash');
-
-const http = require('http');
-const serverHttp = http.createServer(app);
-const {Server} = require('socket.io');
-const io = new Server(serverHttp)
-module.exports = io
-
-
+// Aqui transforma o server express em http
+const server = require('http').createServer(app);
+// Aqui chamamos o ws para observar o servidor 
+const io = require("./config/webSocket.io")(server)
 
 const session = require('express-session');
 
@@ -44,6 +40,9 @@ app.set('view engine','ejs')
 require('./config/routers/routers')(app)
 require('./config/controllers/authenticacaoController')(app)
 require ('./config/routers/routers.login')(app)
-app.listen(port,()=>{
+
+
+// Invés do app.listen, usamos o server.listen. Se não dará erro.
+server.listen(port,()=>{
     console.log(`Servidor rodando na porta ${port}: http://localhost:${port}`);
 })
