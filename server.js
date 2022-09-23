@@ -8,7 +8,7 @@ const flash = require('connect-flash');
 // Aqui transforma o server express em http
 const server = require('http').createServer(app);
 // Aqui chamamos o ws para observar o servidor 
-const io = require("./config/webSocket.io")(server)
+const io = require("./config/controllers/enviarSenhaController")(server)
 
 const session = require('express-session');
 
