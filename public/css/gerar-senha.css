@@ -11,7 +11,7 @@ body{
     height: 100vh;
     width: 100%;
     font-family: 'Roboto', sans-serif;
-    background:linear-gradient(45deg,rgb(17, 53, 231), rgb(39, 45, 51));
+    background:linear-gradient(45deg,rgb(228, 228, 230), rgb(246, 246, 248));
 
 }
 .container{
@@ -29,7 +29,6 @@ body{
     border-radius: 1rem;
     font-size: 60px;
     background-color:white;
-    border-style: none;
     font-weight: bold;
 }
 

@@ -1,4 +1,7 @@
-
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500&family=Ubuntu:wght@300&display=swap');
+body{
+    font-family: 'Roboto', sans-serif;
+}
 *{
     margin: 0;
     padding: 0;
@@ -65,5 +68,48 @@ footer a{
 .container button a{
     text-decoration: none;
     color: #ffff;
+}
+.form-group{
+    width: 300px;
+    text-align: left;
+    font-size: 25px;
+    border: 1px solid black;
+    padding: 20px;
+    border-radius:4px;
+}
+#button-setor{
+    margin-top: 20px;
+    width: 100%;
+}
+#btn-char{
+    padding: 10px;
+    margin: 20px;
+}
+.lista-setores{
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.lista-setor-titulo{
+    font-size: 25px;
+    
+  
+}
+.setor-id{
+    border: 1px solid black;
+    margin-bottom: 5px;
+    width: 300px;
+    padding: 5px;
+}
+    
+.lista-setor-nome{
+    border-top: 1px solid black;
+    padding: 5px;
+}
+
+#botao-deletar{
+    align-items: right;
+    text-align: right;
 }
 

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <link rel=icon type=imagex-icon href="/img/favicon.png">
+  <link href="/css/bootstrap.css" rel="stylesheet">
+  <link rel="stylesheet" href="/css/index.css">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Atendimentos</title>
+  
+  <script src="/js/bootstrap.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js"
+    integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js"
+    integrity="sha384-ODmDIVzN+pFdexxHEHFBQH3/9/vQ9uori45z4JjnFsRydbmQbmL5t1tQ0culUzyK"
+    crossorigin="anonymous"></script>
+</head>
+
+<body>
+  <%- include('../partials/navbar.ejs') %>
+
+  <div class="container mt-03">
+    <h3>Atendimento em espera</h3>
+    <table class="table table-bordered">
+      <h5 class="alert alert-danger" id="nome-usuario"><%= usuario %></h5>
+      <thead>
+        <tr>
+          <th class="table-dark">Senha</th>
+          <th class="table-dark">Prioridade</th>
+          <th class="table-dark" >Chamar Paciente</th>
+          <th class="table-dark" >Tempo de espera </th>
+        </tr>
+         
+            <% atendimentos.forEach(function(atendimento) { %>
+            <tr>
+              <td class="senha" ><%= atendimento.senha %></td>
+              <td class="prioridade"><%= atendimento.prioridade %></td>
+              <td><a href="/dashboard/atendimento-em-progresso/<%=atendimento._id%> "<button class="btn btn-danger" data-senha="<%=atendimento.senha%>" data-tipo="<%=atendimento.tipo %>"> Chamar Paciente</button></a></td>
+              <% }) %>
+            </tr > 
+         
+      </thead>
+      <tbody class="atendimentoEmEspera">
+      </tbody>
+      </thead>
+
+    </table>
+   
+  </div>
+  <footer class="bg-dark"> Desenvolvido por <a href="https://github.com/Ferkz" target="_blank">You burro men ?</a> 
+    &copy;copyright 2022 </footer>
+<script src="/socket.io/socket.io.js"></script>
+<script src="/front-end-js/atendimentoSocket.js"></script>
+<script>
+  function atualiza(){
+    location.reload()
+  }
+  setInterval(() => {atualiza()}, 10000);
+  
+</script>
+</body>
+</html>

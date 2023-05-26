@@ -5,11 +5,8 @@ const path = require('path');
 const port = 3000;
 const passport = require('passport');
 const flash = require('connect-flash');
-// Aqui transforma o server express em http
 const server = require('http').createServer(app);
-// Aqui chamamos o ws para observar o servidor 
-const io = require("./config/controllers/enviarSenhaController")(server)
-
+const io = require("./src/socketBackEnd")(server)
 const session = require('express-session');
 
 app.use(session({
@@ -17,32 +14,31 @@ app.use(session({
     key: 'skey.sid',
     resave: false,
     saveUninitialized: false,
-    cookie : {
-        maxAge: 6048
-    }
+    cookie: { maxAge: 1000 * 60 * 60 * 24 }
 }))
-app.use(flash());
 app.use(passport.initialize())
 app.use(passport.session())
-require('./config/middleware/passport')(passport);
+app.use(flash());
+
+require('./src/middleware/passport')(passport);
 
 app.use((req,res,next)=>{
     res.locals.success_msg = req.flash('success_msg')
     res.locals.error_msg = req.flash('error_msg')
+    res.locals.error = req.flash('error')
     next()
 })
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
-app.set('views', path.join(__dirname,'views'));
+app.set('views', path.join(__dirname,'src/views'));
 app.use(express.static(path.join(__dirname,'./public')));
 app.set('view engine','ejs')
 
-require('./config/routers/routers')(app)
-require('./config/controllers/authenticacaoController')(app)
-require ('./config/routers/routers.login')(app)
+require('./src/routers/routers')(app)
+require('./src/routers/routers.usuarios')(app)
+require('./src/controllers/authenticacaoController')(app)
+require ('./src/routers/routers.login')(app)
 
-
-// Invés do app.listen, usamos o server.listen. Se não dará erro.
 server.listen(port,()=>{
     console.log(`Servidor rodando na porta ${port}: http://localhost:${port}`);
 })

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link href="/css/bootstrap.css" rel="stylesheet">
+    <link rel=icon type=imagex-icon href="/img/favicon.png">
+    <link href="/css/index.css" rel="stylesheet">
+  </head>
+<body>
+
+  <%- include('partials/navbar.ejs') %>
+      <div class="container">
+        <div class="row">
+          <div class="col">
+            <div class="col-sm-3">
+              <a href="/dashboard/exibir" target="_blank">
+            <button class="btn btn btn-warning text-white" type="submit" id="btn-char" >Painel Exibição senha</button> 
+          </a>
+             </div>  
+          </div>
+          <div class="col">
+            <div class="col-sm-3">
+              <a href="/dashboard/configuracoes">
+            <button class="btn btn btn-primary" type="submit" id="btn-char">Configuração</button> 
+          </a>
+            </div> 
+          </div>
+          <div class="col">
+            <div class="col-sm-3">
+              <a href="/dashboard/atendimentos/">
+            <button class="btn btn btn-primary" type="submit" id="btn-char">View Atendimentos</button> 
+              </a>
+            </div>
+          </div>
+          <div class="col">
+            <div class="col-sm-3">
+              <a href="/dashboard/gerar/" target="_blank">
+            <button class="btn btn btn-warning text-white" type="submit" id="btn-char">Gerador de Senhas</button> 
+              </a>
+            </div>
+          </div>
+          <div class="col">
+            <div class="col-sm-3">
+              <a href="#">
+            <button class="btn btn btn-danger" type="button" id="btn-char">Atendimentos improdutivos</button>
+              </a>
+            </div>
+            <div class="col-sm-3">
+              <a href="/dashboard/consultorio">
+            <button class="btn btn btn-primary" type="button" id="btn-char">View Consultório</button>
+              </a>
+            </div>
+            </div>
+        </div>
+      </div>
+<%- include ('./partials/footer.ejs') %>
+<script></script>
+
+</body>
+<script src="/js/bootstrap.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js" integrity="sha384-ODmDIVzN+pFdexxHEHFBQH3/9/vQ9uori45z4JjnFsRydbmQbmL5t1tQ0culUzyK" crossorigin="anonymous"></script>
+</html>

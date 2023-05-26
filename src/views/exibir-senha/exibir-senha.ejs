@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Exibir Senhas</title>
+	<link href="/css/bootstrap.css" rel="stylesheet">
+	<link href="/css/painel-senha.css" rel="stylesheet">	
+</head>
+<body>
+	<div class="barraTop">&nbsp;</div>
+	<div class="container page">
+		<div class="row barraSuperior">
+			<div class="col-xs-1">
+				<img src="/img/logo.png" class="logo">
+			</div>
+			
+		</div>
+		<div class="row">
+			<div class="senhaAtual">
+				<div class="row">
+					<div class="col-xs-5 col-xs-offset-1"><br><br>
+						
+					</div>
+					<div class="col-xs-5">
+						<span id="nome-setor"></span><br>
+						<span id="senhaAtualNumero"></span><Br>
+						<span id="PrioridadeAtual"></span>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-xs-4 col-xs-offset-4 ultimaSenha">
+				<br>
+				<span id="ultimaSenhaTexto">ÚLTIMAS CHAMADAS</span><br>
+				<span id="ultimaSenhaNumero"> </span>
+			</div>
+		</div>
+	</div>
+<script  src="/socket.io/socket.io.js"></script>
+<audio id="audio"  src="/audio/chamada.wav"></audio>
+<script src="/front-end-js/exibirSocket.js"> </script>
+<script src="/js/bootstrap.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js" integrity="sha384-ODmDIVzN+pFdexxHEHFBQH3/9/vQ9uori45z4JjnFsRydbmQbmL5t1tQ0culUzyK" crossorigin="anonymous"></script>
+</body>
+</html>

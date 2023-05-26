@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consultório</title>
+    <link href="/css/bootstrap.css" rel="stylesheet">
+    <link rel=icon type=imagex-icon href="/img/favicon.png">
+    <link href="/css/index.css" rel="stylesheet">
+  </head>
+<body>
+
+<%- include('../partials/navbar.ejs') %>
+<div class="container">
+  <h3>Atendimento em progresso</h3>
+<table class=" table table-bordered ">
+  <thead>
+    <tr>
+      <th class="table-dark">Senha</th>
+      <th class="table-dark">Prioridade</th>
+      <th class="table-dark" >Chamar Paciente ao Consultório</th>
+      <th class="table-dark" >Tempo de espera </th>
+    </tr>
+  </thead>
+  <tbody class="atendimentoEmProgresso">
+  </tbody>
+  </thead>
+</table>
+</div>
+
+<%- include ('../partials/footer.ejs') %>
+<script src="/socket.io/socket.io.js"></script>
+<script>
+const socket = io()
+socket.on('enviar_consultorio_front',({nome,prioridade,senha})=>{
+    console.log(nome,prioridade,senha);
+})
+</script>
+
+</body>

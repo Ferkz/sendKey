@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="PT-BR">
+
+<head>
+    <link rel=icon type=imagex-icon href="/img/favicon.png">
+    <link href="/css/bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/progresso.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atendimento Em progresso</title>
+</head>
+
+<body>   
+    <div class="container">
+    
+        <p class="texto" id="texto">Você está em Atendimento</p>
+        <p class="usuario-texto" id="nome">
+            <%=usuario%>
+        </p>
+        <p class="data-texto" id="data">Data do atendimento: <%= data %>
+        </p>
+        <p class="senha-texto" id="senha">senha: <%=atendimento.senha %>
+        </p>
+        <p class="prioridade-texto" id="prioridade">Prioridade: <%= atendimento.prioridade %>
+        </p>
+        <p class="tempo-texto">Tempo de atendimento: <span id="minutos"></span><span id="segundo"></span> </p>
+        <button type="button" id="button-finalizar" class="btn-finalizar">Finalizar Atendimento</button>
+        <button class="btn-chamar-novamente" id="chamar-novamente">Chamar Novamente</button>
+        <button class="btn-ausente">Ausente</button>
+        <dialog class="modall">
+            <p class="dialog-titulo">Tem certeza que deseja finalizar o atendimento ?</p>
+            
+            <button type="button" class="btn btn-primary" id="enviar" onclick="pegar()">Sim</button>
+            <button type="button" class="btn btn-primary" id="fechar">Não</button>
+        </dialog>
+    </div>
+<script src="/socket.io/socket.io.js"></script>
+<script>
+    
+let segundos = 00;
+let minutos = 00;
+
+function setTime(){
+    segundos++;
+    if(segundos==60){
+        minutos++;
+        segundos=0
+        document.querySelector('#minutos').innerText = `${minutos} Minutos `
+    }
+            document.getElementById('segundo').innerText = `${segundos} Segundos`
+    }
+setInterval(() => {setTime()}, 1000);
+
+const socket = io()
+
+const nome = document.querySelector('#nome').textContent
+const senhaGet = document.querySelector('#senha').textContent
+const senha = senhaGet.replace(':','')
+const prioridadeGet = document.querySelector('#prioridade').textContent
+const prioridade = prioridadeGet.replace(':','')
+const btnChamarNovamente = document.querySelector('#chamar-novamente')
+const dados = {
+    nome:nome,
+    senha:senha,
+    prioridade:prioridade
+}
+btnChamarNovamente.addEventListener('click',()=>{
+        socket.emit('chamar_novamente',dados)
+})
+const modal = document.querySelector('dialog')
+const btnOpen= document.querySelector('#button-finalizar')
+btnOpen.addEventListener('click',(e)=>{
+    modal.showModal()
+})
+const btnEnviar = document.querySelector('#enviar')
+btnEnviar.addEventListener('click',()=>{
+    modal.close()
+    socket.emit('enviar_consultorio',dados)
+    const id = '<%=atendimento.id%>'
+    update(id)
+    setInterval(()=>{window.location.href = '/dashboard/atendimentos'},200)
+    
+})
+btnClose = document.querySelector('#fechar')
+btnClose.addEventListener('click',()=>{
+    modal.close()
+})
+function pegar(){
+    let select = document.querySelector('#setores')
+    let valor = select.options[select.selectedIndex].value
+}
+async function update(updateId){
+    try {
+        const response = await fetch(`http://10.100.50.252:3000/dashboard/atendimento/delete/${updateId}`,{
+            method: 'DELETE'
+        })
+        const result = await response.text()
+        console.log(result);
+    } catch (error) {
+        console.log(error);
+        
+    }
+
+}
+</script>
+</body>
+
+</html>

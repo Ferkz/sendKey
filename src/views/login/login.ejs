@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!--links-->
+    <link rel=icon type=imagex-icon href="/img/favicon.png">
+    <link rel="stylesheet" href="/css/login.css">
+    <link href="/css/bootstrap.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+</head>
+<body>
+  <div class="text-center">
+    <main class="form-signin">
+      <form method="POST" action="/auth/login">
+        <img class="mb-04" src="/img/logo.png" alt width="172" height="77">
+        
+        <h1 class="h3 mb-3 fw-normal"> Login</h1>
+        <% if(error.length >0){ %>
+        <div class="alert alert-danger"><%= error %> </div>
+        <% }else { %>
+        <% } %>
+        <div class="form-floating">
+            <input type="usuário" class="form-control"  placeholder="usuário" required name="usuario">
+            <label for="name">usuário</label>
+        </div> 
+        <div class="form-floating">
+            <input type="password" class="form-control"  placeholder="password" required name="password">
+            <label for="senha">senha</label>
+        </div> 
+        <div class="checkbox mb-3">
+            <label>
+                <input type="checkbox" value="remember-me">
+                     Lembre me 
+            </label>
+        </div>
+        <button class="w-100 btn btn-lg btn-primary " type="submit">Entrar</button>
+        <p class="mt-5 mb-3 text-muted">Sistema desenvolvido por Ferkz</p>
+      </form>
+
+      
+    </main>
+  </div>
+</body>
+<script src="/js/bootstrap.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js" integrity="sha384-ODmDIVzN+pFdexxHEHFBQH3/9/vQ9uori45z4JjnFsRydbmQbmL5t1tQ0culUzyK" crossorigin="anonymous"></script>
+
+</html>

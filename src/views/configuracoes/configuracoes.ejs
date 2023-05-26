@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Configurações</title>
+    <link href="/css/bootstrap.css" rel="stylesheet">
+    <link rel=icon type=imagex-icon href="/img/favicon.png">
+    <link href="/css/index.css" rel="stylesheet">
+  </head>
+   <body>
+    <%- include('../partials/navbar.ejs') %>
+    <div class="container">
+   <form type="submit" action="/dashboard/configuracoes/setor/add" method="POST">
+    <div class="form-group">
+      <label for="setor">Criar setor</label>
+      <input type="text" placeholder="Nome Setor" class="form-control" name="setor">
+      <button class="btn btn-danger" id="button-setor">Criar</button>
+    </div>
+   </form>
+   
+   <div class="lista-setores">
+    <% if(success_msg.length >0){ %>
+      <div class="alert alert-danger"><%= success_msg %> </div>
+      <% }else { %>
+      <% } %>
+        <div class="lista-setor-titulo ">Setores existentes</div>
+        <% setores.forEach(function(setor) { %> 
+          <div class="setor-id" >ID: <%= setor.id %>
+            <div class="lista-setor-nome" >Nome Setor: <%= setor.nome %> <button  class=" btn btn-danger"
+            id="botao-deletar" onclick="deletarSetor('<%= setor.id %>')">Excluir</button> </div>
+          </div>
+          <% }) %>
+   </div>
+  </div>
+
+  <%- include ('../partials/footer.ejs') %>
+<script>
+    async function deletarSetor(setorId){
+      try {
+        const options = {
+          method:'DELETE'
+        }
+        const response = await fetch(`http://10.100.50.252:3000/dashboard/setor/deletar/${setorId}`,options
+        )
+        const message = await response.text()
+        
+      }catch (error) {
+       
+        console.log(error);
+      }
+      window.location.href = '/dashboard/configuracoes';
+    }
+</script>
+   </body>
+

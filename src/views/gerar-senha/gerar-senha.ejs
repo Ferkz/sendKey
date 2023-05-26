@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="PT-BR  ">
+
+<head>
+    <meta description="gerar-senha">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerar Senha</title>
+    <link rel="stylesheet" href="/css/gerar-senha.css">
+    <link rel=icon type=imagex-icon href="/img/favicon.png">
+    <script src="https://cdn.socket.io/4.5.0/socket.io.min.js" integrity="sha384-7EyYLQZgWBi67fBtVxw60/OWl1kjsfrPFcaU0pp0nAh+i8FD068QogUvg85Ewy1k" crossorigin="anonymous"></script>
+</head>
+
+<body>
+   
+    <div class="container">
+        <img src="/img/logo.png" alt="">
+        <button class="senha-btn senha-normal" data-tipo="normal">Atendimento Normal</button>
+        <button class="senha-btn senha-gestante" data-tipo="preferencial">Atendimento Preferencial</button>
+       <!-- <button class="senha-btn senha-idoso" data-tipo="idoso">Senha Idoso</button>-->
+       <!--<button class="senha-btn senha-especial" data-tipo="especial">Senha Especial</button>--> 
+    </div>
+<script src="/socket.io/socket.io.js"></script>
+<script>
+const socket =io()
+const senhas = new Map();
+
+function gerarSenha(tipo) {
+    if (!senhas.has(tipo))
+        senhas.set(tipo, { valor: 1 })
+        return senhas.get(tipo).valor++;
+
+}
+function obj() {
+    document.querySelectorAll('.senha-btn').forEach((botao)=>{
+    botao.addEventListener("click",()=>{
+        socket.emit('atualizar')
+        const tipo = botao.dataset.tipo
+        const prioridade = tipo.charAt(0).toUpperCase() + tipo.slice(1)
+        const senha = gerarSenha(tipo)
+       
+        const data = {
+            tipo:tipo,
+            prioridade: prioridade,
+            senha:senha
+        }
+        const url = '/dashboard/atendimento/add'
+        const options ={
+            method:'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body:JSON.stringify(data)
+        };
+        fetch(url,options)
+        .then(response => response.json())
+        .then(data => console.log(data))
+        .catch(error => console.error(error));
+    })
+})   
+}
+
+obj()
+</script>
+</body>
+</html>
